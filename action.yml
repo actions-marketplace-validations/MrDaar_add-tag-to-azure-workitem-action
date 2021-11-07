@@ -1,0 +1,31 @@
+name: 'Add Tag to Azure Workitem Action'
+description: 'Adds a tag to an Azure DevOps workitem.'
+
+branding:
+  icon: 'zap'
+  color: 'white'
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+
+inputs:
+  organization:
+    description: 'Your Azure organization.'
+    required: true
+  project:
+    description: 'Your Azure project.'
+    required: true
+  pat:
+    description: 'An Azure DevOps personal access token.'
+    required: true
+  tag:
+    description: 'Tag to add to the workitem. e.g.: Approved'
+    required: true
+  branch:
+    description: 'The current base ref of the PR.'
+    required: true
+  types:
+    description: 'Which workitem types this action applies to.'
+    required: false
+    default: 'Story,Task,Bug'
